@@ -10,6 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     node_config.ssh.forward_agent = true
 
+    node_config.vm.network "public_network", {:bridge => 'Broadcom NetLink (TM) Gigabit Ethernet'}
     node_config.vm.network :forwarded_port, guest: 80, host: 1080
     node_config.vm.network :forwarded_port, guest: 443, host: 1443
 
