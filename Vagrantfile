@@ -23,6 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       v.customize ["modifyvm", :id, "--memory", "512"]
     end
 
+    node_config.vm.provision :shell, :inline => "sudo apt-get update"
     node_config.vm.provision :shell, :inline => "sudo apt-get install -y python-software-properties python g++ make"
     node_config.vm.provision :shell, :inline => "sudo add-apt-repository -y ppa:chris-lea/node.js"
     node_config.vm.provision :shell, :inline => "sudo apt-get update"
